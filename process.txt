@@ -4,8 +4,11 @@
 
 2) install flask => pip install flask
 
-3) install SQLAlchemy => pip install Flask-SQLAlchemy
+3) install python-dotenv => pip install python-dotenv
 
+4) install flask_jwt_extended =>
+
+5) install flasgger => 
 
 ## we have to run these lines to run the flask app
     => export FLASK_ENV=development

@@ -9,6 +9,4 @@ def mysqlconnect():
         db = os.environ.get("MYSQL_DATABASE")
     )
 
-    # cursor = connection.cursor()
-
     return connection
