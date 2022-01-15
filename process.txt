@@ -1,0 +1,20 @@
+1) create virtual env and activate it
+        => python3 -m venv venv
+        => source venv/bin/activate
+
+2) install flask => pip install flask
+
+3) install SQLAlchemy => pip install Flask-SQLAlchemy
+
+
+## we have to run these lines to run the flask app
+    => export FLASK_ENV=development
+    => export FLASK_APP=app (here app is the file name or module name which should run)
+    => flask run
+
+
+## it's not efficient to write three lines for running an app.
+## that is why, we create a .env or .flaskenv file and set up the flask environment.
+## but, in order to use the command set in .env or .flaskenv file we have to install a package called "python-dotenv"
+    => pip install python-dotenv
+
