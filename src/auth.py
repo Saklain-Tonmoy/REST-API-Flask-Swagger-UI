@@ -1,4 +1,3 @@
-from os import access
 from flask import Blueprint, jsonify, request
 from werkzeug.security import check_password_hash, generate_password_hash
 from src.constants.http_status_codes import HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_401_UNAUTHORIZED, HTTP_409_CONFLICT
@@ -13,6 +12,7 @@ connection = mysqlconnect()
 auth = Blueprint("auth", __name__, url_prefix="/api/v1/auth")
 
 @auth.post('/register')
+@swag_from('./docs/auth/register.yaml')
 def register():
     ### when we get the reqeuest from "form" then we request.form
     # username = request.form.get('username')
@@ -69,10 +69,8 @@ def login():
     password = request.json['password']
 
     user = getUser(email)
-    # print(user)
-    # print(type(user))
+
     if(user != None):
-        # print(user.get('username'))
         is_pass_correct = check_password_hash(user.get('password'), password)
         if is_pass_correct:
             refresh = create_refresh_token(identity=user.get('email'))
