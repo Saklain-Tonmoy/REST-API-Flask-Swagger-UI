@@ -2,12 +2,14 @@ tags:
   - "Hotel"
 summary: "Search for Hotels"
 description: ""
-operationId: "addPet"
 consumes:
   - "application/json"
 produces:
   - "application/json"
 parameters:
+  - in: header
+    name: Authorization
+    required: true
   - name: "name"
     in: "query"
     description: "Enter Hotel name"
@@ -48,5 +50,3 @@ parameters:
 responses:
   "405":
     description: "Invalid input"
-security:
-  - Bearer

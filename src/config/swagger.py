@@ -20,10 +20,10 @@ template = {
     "securityDefinitions": {
         "Bearer": {
             "type": "apiKey",
-            "name": "Authorization",
+            "name": "Bearer ",
             "in": "header",
             "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
-        }
+        },
     },
 }
 

@@ -6,6 +6,7 @@ from datetime import datetime
 from flask_jwt_extended import jwt_required, create_access_token, get_jwt_identity
 from src.functions import getUser
 from flasgger import swag_from
+from datetime import timedelta
 
 connection = mysqlconnect()
 
@@ -59,8 +60,13 @@ def register():
 @auth.post('/login')
 @swag_from('./docs/auth/login.yaml')
 def login():
+
+    # email = request.json['email']
+    # password = request.json['password']
+
     email = request.args.get('email')
     password = request.args.get('password')
+
     print(email)
     print(password)
     user = getUser(email)
@@ -68,10 +74,10 @@ def login():
     if(user != None):
         is_pass_correct = check_password_hash(user.get('password'), password)
         if is_pass_correct:
-            access = create_access_token(identity=user.get('email'))
+            token = create_access_token(identity=user.get('email'), expires_delta=timedelta(minutes=10))
             return jsonify({
                 'user' : {
-                    'token' : access,
+                    'token' : token,
                     "username" : user.get('username'),
                     "email" : user.get('email')
                 }
