@@ -46,7 +46,7 @@ parameters:
       - "Low to High"
       - "High to Low"
       default: "Low to High"
-    collectionFormat: "single"
+    collectionFormat: "multi"
 responses:
   "405":
     description: "Invalid input"
