@@ -3,6 +3,7 @@ from flasgger import swag_from
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from src.functions import getUser
 from src.database import mysqlconnect
+from operator import itemgetter
 
 hotels = Blueprint("hotels", __name__, url_prefix="/api/v1/hotel")
 
@@ -22,6 +23,7 @@ def get_all():
         price = request.args.get('price')
         sortBy = request.args.getlist('sortBy')
         amenities = ",".join(request.args.getlist('amenities'))
+        print(sortBy[0])
 
         connection = mysqlconnect()
         cursor = connection.cursor()
@@ -61,9 +63,9 @@ def get_all():
         
         if(len(sortBy) != 0):
             if(len(sortBy) > 1 or sortBy[0] == 'Low to High'):
-                hoteldata.sort(key = lambda x: x["price"])   
+                hoteldata.sort(key = itemgetter("price"))
             else:
-                sorted(hoteldata, key = lambda x : x["price"], reverse=True)
+                hoteldata.sort(key = itemgetter("price"), reverse = True)
         json = jsonify(hoteldata)
         return json
     return {"hotels": []}
