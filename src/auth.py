@@ -21,7 +21,7 @@ def register():
 
     ### As, we are using Swagger UI, it sends all the requested data in json format.
     ### That's why we have to use request.json
-    username = request.json('username')
+    username = request.json['username']
     email = request.json['email']
     password = request.json['password']
 
