@@ -16,14 +16,14 @@ parameters:
       properties:
         email:
           type: "email"
-          example: "crycetruly@gmail.com"
+          example: "user@gmail.com"
         username:
           type: "username"
-          example: "usernamex"
+          example: "username"
         password:
           type: "string"
           format: password
-          example: "********"
+          example: "12345678"
 responses:
   201:
     description: When a user successfully logs in

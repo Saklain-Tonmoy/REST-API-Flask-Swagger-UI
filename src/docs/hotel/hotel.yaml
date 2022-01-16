@@ -1,0 +1,35 @@
+tags:
+  - "Hotel"
+summary: "Search for Hotels"
+description: ""
+operationId: "addPet"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+parameters:
+  - name: "name"
+    in: "query"
+    description: "Enter Hotel name"
+    type: "string"
+  - name: "location"
+    in: "query"
+    description: "Enter location"
+    type: "string"
+  - name: "price"
+    in: "query"
+    description: "Enter price"
+    type: "integer"
+  - name: "amenities"
+    in: "query"
+    description: "Enter amenity (comma seperated if multiple)"
+    type: "string"
+  - name: "sortBy"
+    in: "query"
+    description: "ASC/DESC"
+    type: "string"
+responses:
+  "405":
+    description: "Invalid input"
+security:
+  - Bearer
