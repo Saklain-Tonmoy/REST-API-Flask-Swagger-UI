@@ -22,12 +22,29 @@ parameters:
     type: "integer"
   - name: "amenities"
     in: "query"
-    description: "Enter amenity (comma seperated if multiple)"
-    type: "string"
+    description: "Filter by Amenities"
+    type: "array"
+    items:
+      type: "string"
+      enum:
+      - "PARKING"
+      - "WIFI"
+      - "POOL"
+      - "PETS"
+      - "SPA"
+      default: "PARKING"
+    collectionFormat: "multi"
   - name: "sortBy"
     in: "query"
-    description: "ASC/DESC"
-    type: "string"
+    description: "Filter by Price"
+    type: "array"
+    items:
+      type: "string"
+      enum:
+      - "Low to High"
+      - "High to Low"
+      default: "Low to High"
+    collectionFormat: "single"
 responses:
   "405":
     description: "Invalid input"
