@@ -1,11 +1,11 @@
 from flask import Flask, jsonify
 import os
 from src.auth import auth
-from src.constants.http_status_codes import HTTP_404_NOT_FOUND, HTTP_500_INTERNAL_SERVER_ERROR
+from src.http_status_codes import HTTP_404_NOT_FOUND, HTTP_500_INTERNAL_SERVER_ERROR
 from src.hotels import hotels
 from flask_jwt_extended import JWTManager
 from flasgger import Swagger
-from src.config.swagger import template, swagger_config
+from .swagger import swagger_config, template
 
 def create_app(test_config=None):
     ## creating an instance of Flask application

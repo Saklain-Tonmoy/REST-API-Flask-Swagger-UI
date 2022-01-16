@@ -9,22 +9,14 @@ template = {
             "email": "saklain@w3engineers.com",
             "url": "www.linkedin.com/in/md-golam-saklain-hossain-9b6645107",
         },
-        "termsOfService": "www.twitter.com",
+        "termsOfService": "",
         "version": "1.0"
     },
-    "basePath": "/api/v1",  # base bash for blueprint registration
+    "basePath": "/api/v1",
     "schemes": [
         "http",
         "https"
     ],
-    # "securityDefinitions": {
-    #     "Bearer": {
-    #         "type": "apiKey",
-    #         "name": "Bearer ",
-    #         "in": "header",
-    #         "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
-    #     },
-    # },
 }
 
 swagger_config = {
@@ -34,8 +26,8 @@ swagger_config = {
         {
             "endpoint": 'apispec',
             "route": '/apispec.json',
-            "rule_filter": lambda rule: True,  # all in
-            "model_filter": lambda tag: True,  # all in
+            "rule_filter": lambda rule: True,
+            "model_filter": lambda tag: True,
         }
     ],
     "static_url_path": "/flasgger_static",

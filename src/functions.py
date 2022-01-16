@@ -7,7 +7,6 @@ cursor = connection.cursor()
 def getUser(email):
     cursor.execute(" SELECT * FROM users WHERE email = %s ", (email))
     result = cursor.fetchall()
-    # print(result)
     if(len(result) != 0):
         return {
             "id" : result[0][0],

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from werkzeug.security import check_password_hash, generate_password_hash
-from src.constants.http_status_codes import HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_401_UNAUTHORIZED, HTTP_409_CONFLICT
+from src.http_status_codes import HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_401_UNAUTHORIZED, HTTP_409_CONFLICT
 from src.database import mysqlconnect
 from datetime import datetime
 from flask_jwt_extended import jwt_required, create_access_token, get_jwt_identity
@@ -61,9 +61,6 @@ def register():
 @swag_from('./docs/auth/login.yaml')
 def login():
 
-    # email = request.json['email']
-    # password = request.json['password']
-
     email = request.args.get('email')
     password = request.args.get('password')
 
@@ -86,6 +83,7 @@ def login():
     return jsonify({
         "error" : "wrong credentials"
     }), HTTP_401_UNAUTHORIZED
+
 
 @auth.get("/me")
 @jwt_required()
