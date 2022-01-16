@@ -48,7 +48,7 @@ def get_all():
 
         for x in results:
             data = {
-                "Hotel name": x[1],
+                "hotel_name": x[1],
                 "imageUrl": x[2],
                 "location": x[3],
                 "neighborhoodName": x[4],
