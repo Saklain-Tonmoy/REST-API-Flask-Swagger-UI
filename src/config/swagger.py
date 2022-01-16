@@ -9,7 +9,7 @@ template = {
             "email": "saklain@w3engineers.com",
             "url": "www.linkedin.com/in/md-golam-saklain-hossain-9b6645107",
         },
-        "termsOfService": "www.twitter.com/deve",
+        "termsOfService": "www.twitter.com",
         "version": "1.0"
     },
     "basePath": "/api/v1",  # base bash for blueprint registration
@@ -17,14 +17,14 @@ template = {
         "http",
         "https"
     ],
-    "securityDefinitions": {
-        "Bearer": {
-            "type": "apiKey",
-            "name": "Bearer ",
-            "in": "header",
-            "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
-        },
-    },
+    # "securityDefinitions": {
+    #     "Bearer": {
+    #         "type": "apiKey",
+    #         "name": "Bearer ",
+    #         "in": "header",
+    #         "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\""
+    #     },
+    # },
 }
 
 swagger_config = {

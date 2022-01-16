@@ -40,8 +40,8 @@ def get_all():
         location = request.args.get('location')
         rating = request.args.get('rating')
         price = request.args.get('price')
-        sortBy = request.args.get('sortBy')
-        amenities = request.args.get('Amenities')
+        sortBy = request.args.getlist('sortBy')
+        amenities = ",".join(request.args.getlist('amenities'))
 
         print(name)
         print(location)
@@ -88,20 +88,26 @@ def get_all():
         cursor.execute(query)
 
         results = cursor.fetchall()
-        print(results)
+        # print(results)
         for x in results:
             data = {
-                "Hotel name": x[0],
-                "location": x[1],
-                "rating": x[2],
-                "prices": x[3],
-                "Amenities":x[4],
-                "images": x[5]
+                "Hotel name": x[1],
+                "imageUrl": x[2],
+                "location": x[3],
+                "neighborhoodName": x[4],
+                "price": x[5],
+                "star": x[6],
+                "rating":x[7],
+                "amenities": x[8]
                 }
             hoteldata.append(data)
             print(hoteldata)
-        hoteldata.sort(key=lambda x: x["prices"])    
+        if(len(sortBy) > 1 or sortBy[0] == 'Low to High'):
+            # hoteldata.sort(key=lambda x: x["price"])   
+            hoteldata.sort(key=lambda x: x.get('price'), reverse=True)
+        else:
+            hoteldata.sort(key=lambda x: x.get('price'), reverse=True)
         json = jsonify(hoteldata)
         return json
-        # return { "message" : "User Verified" }
+        return { "message" : "User Verified" }
     return {"hotels": []}

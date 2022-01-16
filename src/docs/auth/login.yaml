@@ -1,4 +1,4 @@
-User log in
+User login
 ---
 tags:
   - Authentication
@@ -10,7 +10,7 @@ parameters:
     type: "string"
   - name: "password"
     in: "query"
-    description: "The password for login in clear text"
+    description: "The password for login"
     required: true
     type: "string"
 responses:
