@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flasgger import swag_from
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from src.functions import getUser
@@ -38,7 +38,7 @@ def get_all():
 
         name = request.args.get('name')
         location = request.args.get('location')
-        ratting = request.args.get('ratting')
+        rating = request.args.get('rating')
         price = request.args.get('price')
         sortBy = request.args.get('sortBy')
         amenities = request.args.get('Amenities')
@@ -66,16 +66,16 @@ def get_all():
                 sql=sql+"location LIKE"+f"'%{location}%'"
             else:
                 sql = sql + "AND location LIKE" + f"'%{location}%'"
-        if(ratting!=None):
+        if(rating!=None):
             if (sql == 'SELECT * FROM best_hotels WHERE '):
-                sql=sql+"ratting="+f"'{ratting}'"
+                sql=sql+"score="+f"'{rating}'"
             else:
-                sql = sql + "AND ratting=" + f"'{ratting}'"
+                sql = sql + "AND rating=" + f"'{rating}'"
         if(price!=None):
             if (sql == 'SELECT * FROM best_hotels WHERE '):
-                sql=sql+"prices >="+f"'{price}'"
+                sql=sql+"price >="+f"'{price}'"
             else:
-                sql = sql + "AND prices >=" + f"'{price}'"
+                sql = sql + "AND price >=" + f"'{price}'"
         if(amenities!=None):
             if (sql == 'SELECT * FROM best_hotels WHERE '):
                 sql=sql+"Amenities LIKE"+f"'%{amenities}%'"
@@ -93,7 +93,7 @@ def get_all():
             data = {
                 "Hotel name": x[0],
                 "location": x[1],
-                "ratting": x[2],
+                "rating": x[2],
                 "prices": x[3],
                 "Amenities":x[4],
                 "images": x[5]
@@ -103,5 +103,5 @@ def get_all():
         hoteldata.sort(key=lambda x: x["prices"])    
         json = jsonify(hoteldata)
         return json
-        return { "message" : "User Verified" }
+        # return { "message" : "User Verified" }
     return {"hotels": []}
