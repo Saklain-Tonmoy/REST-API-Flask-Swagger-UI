@@ -51,14 +51,14 @@ pip install -r requirements.txt
 ```
 
 #### Step 4
-> Create a database from XAMPP(localhost) named flask_api and provide the database information (user,password,host,dbname) in .env file.
+> Create a database from XAMPP(localhost) named `flask_api` and provide the database information `(user,password,host,dbname)` in `.env` file.
 
 ```
 CREATE DATABASE [IF NOT EXISTS] flask_api;
 ```
 
 #### Step 5
-> Import the (flask_api.sql) provided with the cloned folder into the database.
+> Import the `flask_api.sql` provided with the cloned folder into the database.
 
 #### Step 6
 > Finally, run the project using following command
