@@ -25,7 +25,7 @@
 
 ## Database Creation
 #### Step 1
-> Create a database from XAMPP(localhost) named flask_api.
+> Create a database from XAMPP(localhost) named flask_api and provide the database information like (user,password,host,dbname)
 
 ```
 CREATE DATABASE [IF NOT EXISTS] flask_api;
