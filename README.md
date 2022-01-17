@@ -87,6 +87,7 @@ http://127.0.0.1:5000/
 ```
 Bearer access-token
 ```
+> Note :: This access-token will expire after 10 minutes. Then you will have to login again and generate a new token.
 
 #### Step 5
 > After that, provide the informations by which you would like to search for hotels.
