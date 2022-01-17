@@ -25,10 +25,10 @@
 
 ## Database Creation
 #### Step 1
-> Create a database from XAMPP(localhost).
+> Create a database from XAMPP(localhost) named flask_api.
 
 ```
-CREATE DATABASE [IF NOT EXISTS] dbname;
+CREATE DATABASE [IF NOT EXISTS] flask_api;
 ```
 #### Step 2
 > Import the (flask_api.sql) provided with the cloned folder into the database.
